@@ -1,10 +1,6 @@
 import dataclasses
 import datetime
-import pprint
 import requests
-import os
-
-LINEAR_API_KEY = os.getenv("LINEAR_API_KEY")
 
 
 @dataclasses.dataclass
@@ -16,41 +12,40 @@ class Issue:
     project: str
 
 
-def get_recent_issues():
-    url = "https://api.linear.app/graphql"
-    headers = {"Authorization": LINEAR_API_KEY}
+class LinearClient:
+    def __init__(self, api_key: str):
+        self.api_key = api_key
 
-    query = """
-    query {
-      viewer {
-        assignedIssues(
-          filter: {
-            updatedAt: { gt: "-P1W" }  # ISO 8601 duration for 1 week ago
-          }
-        ) {
-          nodes {
-            id
-            title
-            updatedAt
-            state {
-              id
-              name
-              color
-              type
+    def get_recent_issues(self):
+        url = "https://api.linear.app/graphql"
+        headers = {"Authorization": self.api_key}
+
+        query = """
+      query {
+        viewer {
+          assignedIssues(
+            filter: {
+              updatedAt: { gt: "-P1W" }  # ISO 8601 duration for 1 week ago
             }
-            project {
+          ) {
+            nodes {
               id
-              name
+              title
+              updatedAt
+              state {
+                id
+                name
+                color
+                type
+              }
+              project {
+                id
+                name
+              }
             }
           }
         }
       }
-    }
-    """
-    response = requests.post(url, headers=headers, json={"query": query})
-    return response.json()
-
-
-if __name__ == "__main__":
-    issues = get_recent_issues()
-    pprint.pprint(issues)
+      """
+        response = requests.post(url, headers=headers, json={"query": query})
+        return response.json()

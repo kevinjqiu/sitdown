@@ -1,9 +1,9 @@
 import click
-from datetime import datetime, timedelta
-import requests
+import dotenv
 import os
-from linear import get_recent_issues
+from linear import LinearClient
 
+dotenv.load_dotenv()
 LINEAR_API_KEY = os.getenv("LINEAR_API_KEY")
 
 
@@ -20,7 +20,8 @@ def my_issues(days):
         click.echo("Error: LINEAR_API_KEY environment variable not set")
         return
 
-    issues = get_recent_issues()
+    linear_client = LinearClient(LINEAR_API_KEY)
+    issues = linear_client.get_recent_issues()
 
     # Format and display the results
     try:
