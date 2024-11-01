@@ -2,8 +2,8 @@ import click
 import dotenv
 import os
 
-from linear import LinearClient
-from llm import generate_summary
+from .linear import LinearClient
+from .llm import generate_summary
 
 
 dotenv.load_dotenv()
@@ -27,11 +27,12 @@ def get_summary(days):
     issues = linear_client.get_recent_issues(days=days)
 
     try:
-        for issue in issues:
-            click.echo(issue)
+        click.echo(f"Found {len(issues)} issues")
     except KeyError as e:
         click.echo(f"Error processing response: {e}")
         click.echo(f"Raw response: {issues}")
+        click.echo("Exiting...")
+        return
 
     summary = generate_summary(issues)
     click.echo(summary)

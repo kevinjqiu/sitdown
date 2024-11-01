@@ -12,6 +12,17 @@ dependencies = [
     "requests>=2.32.3",
 ]
 
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["sitdown*"]
+
+[project.scripts]
+sitdown = "sitdown.cli:cli"
+
 [project.optional-dependencies]
 dev = [
     "ruff>=0.3.0",

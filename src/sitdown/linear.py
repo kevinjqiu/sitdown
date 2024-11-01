@@ -2,7 +2,7 @@ import dataclasses
 import datetime
 import requests
 
-from template import render
+from .template import render
 
 
 @dataclasses.dataclass
