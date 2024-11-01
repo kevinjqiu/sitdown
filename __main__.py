@@ -25,12 +25,8 @@ def my_issues(days):
 
     # Format and display the results
     try:
-        for issue in issues["data"]["viewer"]["assignedIssues"]["nodes"]:
-            click.echo(f"\nTitle: {issue['title']}")
-            click.echo(f"State: {issue['state']['name']}")
-            if issue["project"]:
-                click.echo(f"Project: {issue['project']['name']}")
-            click.echo(f"Updated: {issue['updatedAt']}")
+        for issue in issues:
+            click.echo(issue)
     except KeyError as e:
         click.echo(f"Error processing response: {e}")
         click.echo(f"Raw response: {issues}")
