@@ -40,7 +40,7 @@ def get_summary(days):
 @cli.command()
 def version():
     """Get the CLI version"""
-    click.echo("Linear CLI v0.1.0")
+    click.echo("sitdown v0.1.0")
 
 
 if __name__ == "__main__":

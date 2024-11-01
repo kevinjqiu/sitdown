@@ -47,7 +47,6 @@ cover/
 # Environment variables
 .env
 .env.local
-.env.*
 
 # mypy
 .mypy_cache/
