@@ -41,6 +41,7 @@ uv pip install -e .
 2. Set your API key in .env file:
 ```bash
 LINEAR_API_KEY="lin_api_xxxxxxxxxxxx"
+OPENAI_API_KEY="sk_xxxxxxxxxxxxxxxxxxxxxxxx"
 ```
 
 3. Run the tool:
