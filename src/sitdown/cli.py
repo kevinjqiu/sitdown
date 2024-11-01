@@ -1,12 +1,13 @@
-import click
 import dotenv
-import os
-
-from .linear import LinearClient
-from .llm import generate_summary
-
 
 dotenv.load_dotenv()
+import click  # noqa: E402
+import os  # noqa: E402
+
+from .linear import LinearClient  # noqa: E402
+from .llm import generate_summary  # noqa: E402
+
+
 LINEAR_API_KEY = os.getenv("LINEAR_API_KEY")
 
 

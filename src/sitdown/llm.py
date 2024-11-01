@@ -1,14 +1,24 @@
+import os
+
 from openai import OpenAI
 
 from .linear import Issue
 from .template import render
 
 
-source = "isc:rpc.medusa.data-eng"
-client = OpenAI(
-    api_key="unused",
-    base_url=f"https://aigateway.instacart.tools/proxy/{source}/openai/v1",
-)
+OPENAI_BASE_URL = os.getenv("OPENAI_BASE_URL")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+if not OPENAI_API_KEY:
+    raise ValueError("OPENAI_API_KEY environment variable not set")
+
+
+kwargs = dict(api_key=OPENAI_API_KEY)
+if OPENAI_BASE_URL:
+    kwargs["base_url"] = OPENAI_BASE_URL
+
+
+client = OpenAI(**kwargs)
 
 
 SYSTEM_PROMPT = """
