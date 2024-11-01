@@ -1,5 +1,33 @@
 version = 1
 requires-python = ">=3.10"
+resolution-markers = [
+    "python_full_version < '3.13'",
+    "python_full_version >= '3.13'",
+]
+
+[[package]]
+name = "annotated-types"
+version = "0.7.0"
+source = { registry = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/" }
+sdist = { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/annotated-types/0.7.0/annotated_types-0.7.0.tar.gz", hash = "sha256:aff07c09a53a08bc8cfccb9c85b05f1aa9a2a6f23728d790723543408344ce89" }
+wheels = [
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/annotated-types/0.7.0/annotated_types-0.7.0-py3-none-any.whl", hash = "sha256:1f02e8b43a8fbbc3f3e0d4f0f4bfc8131bcb4eebe8849b8e5c773f3a1c582a53" },
+]
+
+[[package]]
+name = "anyio"
+version = "4.6.2.post1"
+source = { registry = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/" }
+dependencies = [
+    { name = "exceptiongroup", marker = "python_full_version < '3.11'" },
+    { name = "idna" },
+    { name = "sniffio" },
+    { name = "typing-extensions", marker = "python_full_version < '3.11'" },
+]
+sdist = { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/anyio/4.6.2.post1/anyio-4.6.2.post1.tar.gz", hash = "sha256:4c8bc31ccdb51c7f7bd251f51c609e038d63e34219b44aa86e47576389880b4c" }
+wheels = [
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/anyio/4.6.2.post1/anyio-4.6.2.post1-py3-none-any.whl", hash = "sha256:6d170c36fba3bdd840c73d3868c1e777e33676a69c3a72cf0a0d5d6d8009b61d" },
+]
 
 [[package]]
 name = "certifi"
@@ -101,12 +129,294 @@ wheels = [
 ]
 
 [[package]]
+name = "distro"
+version = "1.9.0"
+source = { registry = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/" }
+sdist = { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/distro/1.9.0/distro-1.9.0.tar.gz", hash = "sha256:2fa77c6fd8940f116ee1d6b94a2f90b13b5ea8d019b98bc8bafdcabcdd9bdbed" }
+wheels = [
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/distro/1.9.0/distro-1.9.0-py3-none-any.whl", hash = "sha256:7bffd925d65168f85027d8da9af6bddab658135b840670a223589bc0c8ef02b2" },
+]
+
+[[package]]
+name = "exceptiongroup"
+version = "1.2.2"
+source = { registry = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/" }
+sdist = { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/exceptiongroup/1.2.2/exceptiongroup-1.2.2.tar.gz", hash = "sha256:47c2edf7c6738fafb49fd34290706d1a1a2f4d1c6df275526b62cbb4aa5393cc" }
+wheels = [
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/exceptiongroup/1.2.2/exceptiongroup-1.2.2-py3-none-any.whl", hash = "sha256:3111b9d131c238bec2f8f516e123e14ba243563fb135d3fe885990585aa7795b" },
+]
+
+[[package]]
+name = "h11"
+version = "0.14.0"
+source = { registry = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/" }
+sdist = { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/h11/0.14.0/h11-0.14.0.tar.gz", hash = "sha256:8f19fbbe99e72420ff35c00b27a34cb9937e902a8b810e2c88300c6f0a3b699d" }
+wheels = [
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/h11/0.14.0/h11-0.14.0-py3-none-any.whl", hash = "sha256:e3fe4ac4b851c468cc8363d500db52c2ead036020723024a109d37346efaa761" },
+]
+
+[[package]]
+name = "httpcore"
+version = "1.0.6"
+source = { registry = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/" }
+dependencies = [
+    { name = "certifi" },
+    { name = "h11" },
+]
+sdist = { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/httpcore/1.0.6/httpcore-1.0.6.tar.gz", hash = "sha256:73f6dbd6eb8c21bbf7ef8efad555481853f5f6acdeaff1edb0694289269ee17f" }
+wheels = [
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/httpcore/1.0.6/httpcore-1.0.6-py3-none-any.whl", hash = "sha256:27b59625743b85577a8c0e10e55b50b5368a4f2cfe8cc7bcfa9cf00829c2682f" },
+]
+
+[[package]]
+name = "httpx"
+version = "0.27.2"
+source = { registry = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/" }
+dependencies = [
+    { name = "anyio" },
+    { name = "certifi" },
+    { name = "httpcore" },
+    { name = "idna" },
+    { name = "sniffio" },
+]
+sdist = { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/httpx/0.27.2/httpx-0.27.2.tar.gz", hash = "sha256:f7c2be1d2f3c3c3160d441802406b206c2b76f5947b11115e6df10c6c65e66c2" }
+wheels = [
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/httpx/0.27.2/httpx-0.27.2-py3-none-any.whl", hash = "sha256:7bb2708e112d8fdd7829cd4243970f0c223274051cb35ee80c03301ee29a3df0" },
+]
+
+[[package]]
 name = "idna"
 version = "3.10"
 source = { registry = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/" }
 sdist = { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/idna/3.10/idna-3.10.tar.gz", hash = "sha256:12f65c9b470abda6dc35cf8e63cc574b1c52b11df2c86030af0ac09b01b13ea9" }
 wheels = [
     { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/idna/3.10/idna-3.10-py3-none-any.whl", hash = "sha256:946d195a0d259cbba61165e88e65941f16e9b36ea6ddb97f00452bae8b1287d3" },
+]
+
+[[package]]
+name = "jinja2"
+version = "3.1.4"
+source = { registry = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/" }
+dependencies = [
+    { name = "markupsafe" },
+]
+sdist = { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jinja2/3.1.4/jinja2-3.1.4.tar.gz", hash = "sha256:4a3aee7acbbe7303aede8e9648d13b8bf88a429282aa6122a993f0ac800cb369" }
+wheels = [
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jinja2/3.1.4/jinja2-3.1.4-py3-none-any.whl", hash = "sha256:bc5dd2abb727a5319567b7a813e6a2e7318c39f4f487cfe6c89c6f9c7d25197d" },
+]
+
+[[package]]
+name = "jiter"
+version = "0.7.0"
+source = { registry = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/" }
+sdist = { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0.tar.gz", hash = "sha256:c061d9738535497b5509f8970584f20de1e900806b239a39a9994fc191dad630" }
+wheels = [
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp310-cp310-macosx_10_12_x86_64.whl", hash = "sha256:e14027f61101b3f5e173095d9ecf95c1cac03ffe45a849279bde1d97e559e314" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:979ec4711c2e37ac949561858bd42028884c9799516a923e1ff0b501ef341a4a" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:662d5d3cca58ad6af7a3c6226b641c8655de5beebcb686bfde0df0f21421aafa" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp310-cp310-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:1d89008fb47043a469f97ad90840b97ba54e7c3d62dc7cbb6cbf938bd0caf71d" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp310-cp310-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:a8b16c35c846a323ce9067170d5ab8c31ea3dbcab59c4f7608bbbf20c2c3b43f" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp310-cp310-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:c9e82daaa1b0a68704f9029b81e664a5a9de3e466c2cbaabcda5875f961702e7" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:43a87a9f586636e1f0dd3651a91f79b491ea0d9fd7cbbf4f5c463eebdc48bda7" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp310-cp310-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:2ec05b1615f96cc3e4901678bc863958611584072967d9962f9e571d60711d52" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp310-cp310-musllinux_1_1_aarch64.whl", hash = "sha256:a5cb97e35370bde7aa0d232a7f910f5a0fbbc96bc0a7dbaa044fd5cd6bcd7ec3" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp310-cp310-musllinux_1_1_x86_64.whl", hash = "sha256:cb316dacaf48c8c187cea75d0d7f835f299137e6fdd13f691dff8f92914015c7" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp310-none-win32.whl", hash = "sha256:243f38eb4072763c54de95b14ad283610e0cd3bf26393870db04e520f60eebb3" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp310-none-win_amd64.whl", hash = "sha256:2221d5603c139f6764c54e37e7c6960c469cbcd76928fb10d15023ba5903f94b" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp311-cp311-macosx_10_12_x86_64.whl", hash = "sha256:91cec0ad755bd786c9f769ce8d843af955df6a8e56b17658771b2d5cb34a3ff8" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:feba70a28a27d962e353e978dbb6afd798e711c04cb0b4c5e77e9d3779033a1a" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:a9d866ec066c3616cacb8535dbda38bb1d470b17b25f0317c4540182bc886ce2" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp311-cp311-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:8e7a7a00b6f9f18289dd563596f97ecaba6c777501a8ba04bf98e03087bcbc60" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp311-cp311-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:9aaf564094c7db8687f2660605e099f3d3e6ea5e7135498486674fcb78e29165" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp311-cp311-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:a4d27e09825c1b3c7a667adb500ce8b840e8fc9f630da8454b44cdd4fb0081bb" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:3ca7c287da9c1d56dda88da1d08855a787dbb09a7e2bd13c66a2e288700bd7c7" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp311-cp311-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:db19a6d160f093cbc8cd5ea2abad420b686f6c0e5fb4f7b41941ebc6a4f83cda" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp311-cp311-musllinux_1_1_aarch64.whl", hash = "sha256:6e46a63c7f877cf7441ffc821c28287cfb9f533ae6ed707bde15e7d4dfafa7ae" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp311-cp311-musllinux_1_1_x86_64.whl", hash = "sha256:7ba426fa7ff21cb119fa544b75dd3fbee6a70e55a5829709c0338d07ccd30e6d" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp311-none-win32.whl", hash = "sha256:c07f55a64912b0c7982377831210836d2ea92b7bd343fca67a32212dd72e38e0" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp311-none-win_amd64.whl", hash = "sha256:ed27b2c43e1b5f6c7fedc5c11d4d8bfa627de42d1143d87e39e2e83ddefd861a" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp312-cp312-macosx_10_12_x86_64.whl", hash = "sha256:ac7930bcaaeb1e229e35c91c04ed2e9f39025b86ee9fc3141706bbf6fff4aeeb" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:571feae3e7c901a8eedde9fd2865b0dfc1432fb15cab8c675a8444f7d11b7c5d" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:a8af4df8a262fa2778b68c2a03b6e9d1cb4d43d02bea6976d46be77a3a331af1" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp312-cp312-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:bd028d4165097a611eb0c7494d8c1f2aebd46f73ca3200f02a175a9c9a6f22f5" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp312-cp312-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:c6b487247c7836810091e9455efe56a52ec51bfa3a222237e1587d04d3e04527" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp312-cp312-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:e6d28a92f28814e1a9f2824dc11f4e17e1df1f44dc4fdeb94c5450d34bcb2602" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:90443994bbafe134f0b34201dad3ebe1c769f0599004084e046fb249ad912425" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp312-cp312-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:f9abf464f9faac652542ce8360cea8e68fba2b78350e8a170248f9bcc228702a" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp312-cp312-musllinux_1_1_aarch64.whl", hash = "sha256:db7a8d99fc5f842f7d2852f06ccaed066532292c41723e5dff670c339b649f88" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp312-cp312-musllinux_1_1_x86_64.whl", hash = "sha256:15cf691ebd8693b70c94627d6b748f01e6d697d9a6e9f2bc310934fcfb7cf25e" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp312-none-win32.whl", hash = "sha256:9dcd54fa422fb66ca398bec296fed5f58e756aa0589496011cfea2abb5be38a5" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp312-none-win_amd64.whl", hash = "sha256:cc989951f73f9375b8eacd571baaa057f3d7d11b7ce6f67b9d54642e7475bfad" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp313-cp313-macosx_10_12_x86_64.whl", hash = "sha256:24cecd18df540963cd27c08ca5ce1d0179f229ff78066d9eecbe5add29361340" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:d41b46236b90b043cca73785674c23d2a67d16f226394079d0953f94e765ed76" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp313-cp313-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:b160db0987171365c153e406a45dcab0ee613ae3508a77bfff42515cb4ce4d6e" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp313-cp313-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:d1c8d91e0f0bd78602eaa081332e8ee4f512c000716f5bc54e9a037306d693a7" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp313-cp313-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:997706c683195eeff192d2e5285ce64d2a610414f37da3a3f2625dcf8517cf90" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp313-cp313-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:7ea52a8a0ff0229ab2920284079becd2bae0688d432fca94857ece83bb49c541" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:6d77449d2738cf74752bb35d75ee431af457e741124d1db5e112890023572c7c" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp313-cp313-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:a8203519907a1d81d6cb00902c98e27c2d0bf25ce0323c50ca594d30f5f1fbcf" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp313-cp313-musllinux_1_1_aarch64.whl", hash = "sha256:41d15ccc53931c822dd7f1aebf09faa3cda2d7b48a76ef304c7dbc19d1302e51" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp313-cp313-musllinux_1_1_x86_64.whl", hash = "sha256:febf3179b2fabf71fbd2fd52acb8594163bb173348b388649567a548f356dbf6" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp313-none-win32.whl", hash = "sha256:4a8e2d866e7eda19f012444e01b55079d8e1c4c30346aaac4b97e80c54e2d6d3" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/jiter/0.7.0/jiter-0.7.0-cp313-none-win_amd64.whl", hash = "sha256:7417c2b928062c496f381fb0cb50412eee5ad1d8b53dbc0e011ce45bb2de522c" },
+]
+
+[[package]]
+name = "markupsafe"
+version = "3.0.2"
+source = { registry = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/" }
+sdist = { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/markupsafe-3.0.2.tar.gz", hash = "sha256:ee55d3edf80167e48ea11a923c7386f4669df67d7994554387f84e7d8b0a2bf0" }
+wheels = [
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:7e94c425039cde14257288fd61dcfb01963e658efbc0ff54f5306b06054700f8" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:9e2d922824181480953426608b81967de705c3cef4d1af983af849d7bd619158" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:38a9ef736c01fccdd6600705b09dc574584b89bea478200c5fbf112a6b0d5579" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:bbcb445fa71794da8f178f0f6d66789a28d7319071af7a496d4d507ed566270d" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp310-cp310-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:57cb5a3cf367aeb1d316576250f65edec5bb3be939e9247ae594b4bcbc317dfb" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp310-cp310-musllinux_1_2_aarch64.whl", hash = "sha256:3809ede931876f5b2ec92eef964286840ed3540dadf803dd570c3b7e13141a3b" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp310-cp310-musllinux_1_2_i686.whl", hash = "sha256:e07c3764494e3776c602c1e78e298937c3315ccc9043ead7e685b7f2b8d47b3c" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp310-cp310-musllinux_1_2_x86_64.whl", hash = "sha256:b424c77b206d63d500bcb69fa55ed8d0e6a3774056bdc4839fc9298a7edca171" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp310-cp310-win32.whl", hash = "sha256:fcabf5ff6eea076f859677f5f0b6b5c1a51e70a376b0579e0eadef8db48c6b50" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp310-cp310-win_amd64.whl", hash = "sha256:6af100e168aa82a50e186c82875a5893c5597a0c1ccdb0d8b40240b1f28b969a" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp311-cp311-macosx_10_9_universal2.whl", hash = "sha256:9025b4018f3a1314059769c7bf15441064b2207cb3f065e6ea1e7359cb46db9d" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:93335ca3812df2f366e80509ae119189886b0f3c2b81325d39efdb84a1e2ae93" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:2cb8438c3cbb25e220c2ab33bb226559e7afb3baec11c4f218ffa7308603c832" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:a123e330ef0853c6e822384873bef7507557d8e4a082961e1defa947aa59ba84" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp311-cp311-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:1e084f686b92e5b83186b07e8a17fc09e38fff551f3602b249881fec658d3eca" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp311-cp311-musllinux_1_2_aarch64.whl", hash = "sha256:d8213e09c917a951de9d09ecee036d5c7d36cb6cb7dbaece4c71a60d79fb9798" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp311-cp311-musllinux_1_2_i686.whl", hash = "sha256:5b02fb34468b6aaa40dfc198d813a641e3a63b98c2b05a16b9f80b7ec314185e" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp311-cp311-musllinux_1_2_x86_64.whl", hash = "sha256:0bff5e0ae4ef2e1ae4fdf2dfd5b76c75e5c2fa4132d05fc1b0dabcd20c7e28c4" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp311-cp311-win32.whl", hash = "sha256:6c89876f41da747c8d3677a2b540fb32ef5715f97b66eeb0c6b66f5e3ef6f59d" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp311-cp311-win_amd64.whl", hash = "sha256:70a87b411535ccad5ef2f1df5136506a10775d267e197e4cf531ced10537bd6b" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp312-cp312-macosx_10_13_universal2.whl", hash = "sha256:9778bd8ab0a994ebf6f84c2b949e65736d5575320a17ae8984a77fab08db94cf" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:846ade7b71e3536c4e56b386c2a47adf5741d2d8b94ec9dc3e92e5e1ee1e2225" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:1c99d261bd2d5f6b59325c92c73df481e05e57f19837bdca8413b9eac4bd8028" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:e17c96c14e19278594aa4841ec148115f9c7615a47382ecb6b82bd8fea3ab0c8" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp312-cp312-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:88416bd1e65dcea10bc7569faacb2c20ce071dd1f87539ca2ab364bf6231393c" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp312-cp312-musllinux_1_2_aarch64.whl", hash = "sha256:2181e67807fc2fa785d0592dc2d6206c019b9502410671cc905d132a92866557" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp312-cp312-musllinux_1_2_i686.whl", hash = "sha256:52305740fe773d09cffb16f8ed0427942901f00adedac82ec8b67752f58a1b22" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:ad10d3ded218f1039f11a75f8091880239651b52e9bb592ca27de44eed242a48" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp312-cp312-win32.whl", hash = "sha256:0f4ca02bea9a23221c0182836703cbf8930c5e9454bacce27e767509fa286a30" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp312-cp312-win_amd64.whl", hash = "sha256:8e06879fc22a25ca47312fbe7c8264eb0b662f6db27cb2d3bbbc74b1df4b9b87" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp313-cp313-macosx_10_13_universal2.whl", hash = "sha256:ba9527cdd4c926ed0760bc301f6728ef34d841f405abf9d4f959c478421e4efd" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:f8b3d067f2e40fe93e1ccdd6b2e1d16c43140e76f02fb1319a05cf2b79d99430" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp313-cp313-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:569511d3b58c8791ab4c2e1285575265991e6d8f8700c7be0e88f86cb0672094" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:15ab75ef81add55874e7ab7055e9c397312385bd9ced94920f2802310c930396" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp313-cp313-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:f3818cb119498c0678015754eba762e0d61e5b52d34c8b13d770f0719f7b1d79" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp313-cp313-musllinux_1_2_aarch64.whl", hash = "sha256:cdb82a876c47801bb54a690c5ae105a46b392ac6099881cdfb9f6e95e4014c6a" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp313-cp313-musllinux_1_2_i686.whl", hash = "sha256:cabc348d87e913db6ab4aa100f01b08f481097838bdddf7c7a84b7575b7309ca" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:444dcda765c8a838eaae23112db52f1efaf750daddb2d9ca300bcae1039adc5c" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp313-cp313-win32.whl", hash = "sha256:bcf3e58998965654fdaff38e58584d8937aa3096ab5354d493c77d1fdd66d7a1" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp313-cp313-win_amd64.whl", hash = "sha256:e6a2a455bd412959b57a172ce6328d2dd1f01cb2135efda2e4576e8a23fa3b0f" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp313-cp313t-macosx_10_13_universal2.whl", hash = "sha256:b5a6b3ada725cea8a5e634536b1b01c30bcdcd7f9c6fff4151548d5bf6b3a36c" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp313-cp313t-macosx_11_0_arm64.whl", hash = "sha256:a904af0a6162c73e3edcb969eeeb53a63ceeb5d8cf642fade7d39e7963a22ddb" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp313-cp313t-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:4aa4e5faecf353ed117801a068ebab7b7e09ffb6e1d5e412dc852e0da018126c" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp313-cp313t-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:c0ef13eaeee5b615fb07c9a7dadb38eac06a0608b41570d8ade51c56539e509d" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp313-cp313t-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:d16a81a06776313e817c951135cf7340a3e91e8c1ff2fac444cfd75fffa04afe" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp313-cp313t-musllinux_1_2_aarch64.whl", hash = "sha256:6381026f158fdb7c72a168278597a5e3a5222e83ea18f543112b2662a9b699c5" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp313-cp313t-musllinux_1_2_i686.whl", hash = "sha256:3d79d162e7be8f996986c064d1c7c817f6df3a77fe3d6859f6f9e7be4b8c213a" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp313-cp313t-musllinux_1_2_x86_64.whl", hash = "sha256:131a3c7689c85f5ad20f9f6fb1b866f402c445b220c19fe4308c0b147ccd2ad9" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp313-cp313t-win32.whl", hash = "sha256:ba8062ed2cf21c07a9e295d5b8a2a5ce678b913b45fdf68c32d95d6c1291e0b6" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/markupsafe/3.0.2/MarkupSafe-3.0.2-cp313-cp313t-win_amd64.whl", hash = "sha256:e444a31f8db13eb18ada366ab3cf45fd4b31e4db1236a4448f68778c1d1a5a2f" },
+]
+
+[[package]]
+name = "openai"
+version = "1.53.0"
+source = { registry = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/" }
+dependencies = [
+    { name = "anyio" },
+    { name = "distro" },
+    { name = "httpx" },
+    { name = "jiter" },
+    { name = "pydantic" },
+    { name = "sniffio" },
+    { name = "tqdm" },
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/openai/1.53.0/openai-1.53.0.tar.gz", hash = "sha256:be2c4e77721b166cce8130e544178b7d579f751b4b074ffbaade3854b6f85ec5" }
+wheels = [
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/openai/1.53.0/openai-1.53.0-py3-none-any.whl", hash = "sha256:20f408c32fc5cb66e60c6882c994cdca580a5648e10045cd840734194f033418" },
+]
+
+[[package]]
+name = "pydantic"
+version = "2.9.2"
+source = { registry = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/" }
+dependencies = [
+    { name = "annotated-types" },
+    { name = "pydantic-core" },
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic/2.9.2/pydantic-2.9.2.tar.gz", hash = "sha256:d155cef71265d1e9807ed1c32b4c8deec042a44a50a4188b25ac67ecd81a9c0f" }
+wheels = [
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic/2.9.2/pydantic-2.9.2-py3-none-any.whl", hash = "sha256:f048cec7b26778210e28a0459867920654d48e5e62db0958433636cde4254f12" },
+]
+
+[[package]]
+name = "pydantic-core"
+version = "2.23.4"
+source = { registry = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/" }
+dependencies = [
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4.tar.gz", hash = "sha256:2584f7cf844ac4d970fba483a717dbe10c1c1c96a969bf65d61ffe94df1b2863" }
+wheels = [
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp310-cp310-macosx_10_12_x86_64.whl", hash = "sha256:b10bd51f823d891193d4717448fab065733958bdb6a6b351967bd349d48d5c9b" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:4fc714bdbfb534f94034efaa6eadd74e5b93c8fa6315565a222f7b6f42ca1166" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:63e46b3169866bd62849936de036f901a9356e36376079b05efa83caeaa02ceb" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp310-cp310-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:ed1a53de42fbe34853ba90513cea21673481cd81ed1be739f7f2efb931b24916" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp310-cp310-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:cfdd16ab5e59fc31b5e906d1a3f666571abc367598e3e02c83403acabc092e07" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp310-cp310-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:255a8ef062cbf6674450e668482456abac99a5583bbafb73f9ad469540a3a232" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:4a7cd62e831afe623fbb7aabbb4fe583212115b3ef38a9f6b71869ba644624a2" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp310-cp310-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:f09e2ff1f17c2b51f2bc76d1cc33da96298f0a036a137f5440ab3ec5360b624f" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp310-cp310-musllinux_1_1_aarch64.whl", hash = "sha256:e38e63e6f3d1cec5a27e0afe90a085af8b6806ee208b33030e65b6516353f1a3" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp310-cp310-musllinux_1_1_x86_64.whl", hash = "sha256:0dbd8dbed2085ed23b5c04afa29d8fd2771674223135dc9bc937f3c09284d071" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp310-none-win32.whl", hash = "sha256:6531b7ca5f951d663c339002e91aaebda765ec7d61b7d1e3991051906ddde119" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp310-none-win_amd64.whl", hash = "sha256:7c9129eb40958b3d4500fa2467e6a83356b3b61bfff1b414c7361d9220f9ae8f" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp311-cp311-macosx_10_12_x86_64.whl", hash = "sha256:77733e3892bb0a7fa797826361ce8a9184d25c8dffaec60b7ffe928153680ba8" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:1b84d168f6c48fabd1f2027a3d1bdfe62f92cade1fb273a5d68e621da0e44e6d" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:df49e7a0861a8c36d089c1ed57d308623d60416dab2647a4a17fe050ba85de0e" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp311-cp311-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:ff02b6d461a6de369f07ec15e465a88895f3223eb75073ffea56b84d9331f607" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp311-cp311-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:996a38a83508c54c78a5f41456b0103c30508fed9abcad0a59b876d7398f25fd" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp311-cp311-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:d97683ddee4723ae8c95d1eddac7c192e8c552da0c73a925a89fa8649bf13eea" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:216f9b2d7713eb98cb83c80b9c794de1f6b7e3145eef40400c62e86cee5f4e1e" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp311-cp311-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:6f783e0ec4803c787bcea93e13e9932edab72068f68ecffdf86a99fd5918878b" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp311-cp311-musllinux_1_1_aarch64.whl", hash = "sha256:d0776dea117cf5272382634bd2a5c1b6eb16767c223c6a5317cd3e2a757c61a0" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp311-cp311-musllinux_1_1_x86_64.whl", hash = "sha256:d5f7a395a8cf1621939692dba2a6b6a830efa6b3cee787d82c7de1ad2930de64" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp311-none-win32.whl", hash = "sha256:74b9127ffea03643e998e0c5ad9bd3811d3dac8c676e47db17b0ee7c3c3bf35f" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp311-none-win_amd64.whl", hash = "sha256:98d134c954828488b153d88ba1f34e14259284f256180ce659e8d83e9c05eaa3" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp312-cp312-macosx_10_12_x86_64.whl", hash = "sha256:f3e0da4ebaef65158d4dfd7d3678aad692f7666877df0002b8a522cdf088f231" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:f69a8e0b033b747bb3e36a44e7732f0c99f7edd5cea723d45bc0d6e95377ffee" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:723314c1d51722ab28bfcd5240d858512ffd3116449c557a1336cbe3919beb87" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp312-cp312-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:bb2802e667b7051a1bebbfe93684841cc9351004e2badbd6411bf357ab8d5ac8" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp312-cp312-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:d18ca8148bebe1b0a382a27a8ee60350091a6ddaf475fa05ef50dc35b5df6327" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp312-cp312-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:33e3d65a85a2a4a0dc3b092b938a4062b1a05f3a9abde65ea93b233bca0e03f2" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:128585782e5bfa515c590ccee4b727fb76925dd04a98864182b22e89a4e6ed36" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp312-cp312-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:68665f4c17edcceecc112dfed5dbe6f92261fb9d6054b47d01bf6371a6196126" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp312-cp312-musllinux_1_1_aarch64.whl", hash = "sha256:20152074317d9bed6b7a95ade3b7d6054845d70584216160860425f4fbd5ee9e" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp312-cp312-musllinux_1_1_x86_64.whl", hash = "sha256:9261d3ce84fa1d38ed649c3638feefeae23d32ba9182963e465d58d62203bd24" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp312-none-win32.whl", hash = "sha256:4ba762ed58e8d68657fc1281e9bb72e1c3e79cc5d464be146e260c541ec12d84" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp312-none-win_amd64.whl", hash = "sha256:97df63000f4fea395b2824da80e169731088656d1818a11b95f3b173747b6cd9" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp313-cp313-macosx_10_12_x86_64.whl", hash = "sha256:7530e201d10d7d14abce4fb54cfe5b94a0aefc87da539d0346a484ead376c3cc" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:df933278128ea1cd77772673c73954e53a1c95a4fdf41eef97c2b779271bd0bd" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp313-cp313-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:0cb3da3fd1b6a5d0279a01877713dbda118a2a4fc6f0d821a57da2e464793f05" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp313-cp313-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:42c6dcb030aefb668a2b7009c85b27f90e51e6a3b4d5c9bc4c57631292015b0d" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp313-cp313-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:696dd8d674d6ce621ab9d45b205df149399e4bb9aa34102c970b721554828510" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp313-cp313-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:2971bb5ffe72cc0f555c13e19b23c85b654dd2a8f7ab493c262071377bfce9f6" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:8394d940e5d400d04cad4f75c0598665cbb81aecefaca82ca85bd28264af7f9b" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp313-cp313-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:0dff76e0602ca7d4cdaacc1ac4c005e0ce0dcfe095d5b5259163a80d3a10d327" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp313-cp313-musllinux_1_1_aarch64.whl", hash = "sha256:7d32706badfe136888bdea71c0def994644e09fff0bfe47441deaed8e96fdbc6" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp313-cp313-musllinux_1_1_x86_64.whl", hash = "sha256:ed541d70698978a20eb63d8c5d72f2cc6d7079d9d90f6b50bad07826f1320f5f" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp313-none-win32.whl", hash = "sha256:3d5639516376dce1940ea36edf408c554475369f5da2abd45d44621cb616f769" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-cp313-none-win_amd64.whl", hash = "sha256:5a1504ad17ba4210df3a045132a7baeeba5a200e930f57512ee02909fc5c4cb5" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-pp310-pypy310_pp73-macosx_10_12_x86_64.whl", hash = "sha256:f455ee30a9d61d3e1a15abd5068827773d6e4dc513e795f380cdd59932c782d5" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-pp310-pypy310_pp73-macosx_11_0_arm64.whl", hash = "sha256:1e90d2e3bd2c3863d48525d297cd143fe541be8bbf6f579504b9712cb6b643ec" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-pp310-pypy310_pp73-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:2e203fdf807ac7e12ab59ca2bfcabb38c7cf0b33c41efeb00f8e5da1d86af480" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-pp310-pypy310_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:e08277a400de01bc72436a0ccd02bdf596631411f592ad985dcee21445bd0068" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-pp310-pypy310_pp73-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:f220b0eea5965dec25480b6333c788fb72ce5f9129e8759ef876a1d805d00801" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-pp310-pypy310_pp73-musllinux_1_1_aarch64.whl", hash = "sha256:d06b0c8da4f16d1d1e352134427cb194a0a6e19ad5db9161bf32b2113409e728" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-pp310-pypy310_pp73-musllinux_1_1_x86_64.whl", hash = "sha256:ba1a0996f6c2773bd83e63f18914c1de3c9dd26d55f4ac302a7efe93fb8e7433" },
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/pydantic-core/2.23.4/pydantic_core-2.23.4-pp310-pypy310_pp73-win_amd64.whl", hash = "sha256:9a5bce9d23aac8f0cf0836ecfc033896aa8443b501c58d0602dbfd5bd5b37753" },
 ]
 
 [[package]]
@@ -164,6 +474,8 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "click" },
+    { name = "jinja2" },
+    { name = "openai" },
     { name = "python-dotenv" },
     { name = "requests" },
 ]
@@ -176,9 +488,41 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "click", specifier = ">=8.1.7" },
+    { name = "jinja2", specifier = ">=3.1.4" },
+    { name = "openai", specifier = ">=1.53.0" },
     { name = "python-dotenv", specifier = ">=1.0.1" },
     { name = "requests", specifier = ">=2.32.3" },
     { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.3.0" },
+]
+
+[[package]]
+name = "sniffio"
+version = "1.3.1"
+source = { registry = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/" }
+sdist = { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/sniffio/1.3.1/sniffio-1.3.1.tar.gz", hash = "sha256:f4324edc670a0f49750a81b895f35c3adb843cca46f0530f79fc1babb23789dc" }
+wheels = [
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/sniffio/1.3.1/sniffio-1.3.1-py3-none-any.whl", hash = "sha256:2f6da418d1f1e0fddd844478f41680e794e6051915791a034ff65e5f100525a2" },
+]
+
+[[package]]
+name = "tqdm"
+version = "4.66.6"
+source = { registry = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/" }
+dependencies = [
+    { name = "colorama", marker = "platform_system == 'Windows'" },
+]
+sdist = { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/tqdm/4.66.6/tqdm-4.66.6.tar.gz", hash = "sha256:4bdd694238bef1485ce839d67967ab50af8f9272aab687c0d7702a01da0be090" }
+wheels = [
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/tqdm/4.66.6/tqdm-4.66.6-py3-none-any.whl", hash = "sha256:223e8b5359c2efc4b30555531f09e9f2f3589bcd7fdd389271191031b49b7a63" },
+]
+
+[[package]]
+name = "typing-extensions"
+version = "4.12.2"
+source = { registry = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/" }
+sdist = { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/typing-extensions/4.12.2/typing_extensions-4.12.2.tar.gz", hash = "sha256:1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8" }
+wheels = [
+    { url = "https://python-635153817997.d.codeartifact.us-east-1.amazonaws.com/pypi/python-private/simple/typing-extensions/4.12.2/typing_extensions-4.12.2-py3-none-any.whl", hash = "sha256:04e5ca0351e0f3f85c6853954072df659d0d13fac324d0072316b67d7794700d" },
 ]
 
 [[package]]

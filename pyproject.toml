@@ -6,6 +6,8 @@ readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
     "click>=8.1.7",
+    "jinja2>=3.1.4",
+    "openai>=1.53.0",
     "python-dotenv>=1.0.1",
     "requests>=2.32.3",
 ]
@@ -16,8 +18,8 @@ dev = [
 ]
 
 [tool.ruff]
-# Same as Black.
-line-length = 88
+# Increased from 88 to 120 characters
+line-length = 120
 
 # Exclude a variety of commonly ignored directories.
 exclude = [

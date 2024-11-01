@@ -1,7 +1,10 @@
 import click
 import dotenv
 import os
+
 from linear import LinearClient
+from llm import generate_summary
+
 
 dotenv.load_dotenv()
 LINEAR_API_KEY = os.getenv("LINEAR_API_KEY")
@@ -14,22 +17,24 @@ def cli():
 
 @cli.command()
 @click.option("--days", default=7, help="Number of days to look back")
-def my_issues(days):
+def get_summary(days):
     """Get issues assigned to you from the last N days"""
     if not LINEAR_API_KEY:
         click.echo("Error: LINEAR_API_KEY environment variable not set")
         return
 
     linear_client = LinearClient(LINEAR_API_KEY)
-    issues = linear_client.get_recent_issues()
+    issues = linear_client.get_recent_issues(days=days)
 
-    # Format and display the results
     try:
         for issue in issues:
             click.echo(issue)
     except KeyError as e:
         click.echo(f"Error processing response: {e}")
         click.echo(f"Raw response: {issues}")
+
+    summary = generate_summary(issues)
+    click.echo(summary)
 
 
 @cli.command()
