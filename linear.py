@@ -31,12 +31,37 @@ class Attachment:
 
 
 @dataclasses.dataclass
+class Project:
+    PROMPT_TEMPLATE = """
+- {{project.name}} ({{project.description}})
+"""
+
+    id: str
+    name: str
+    description: str
+
+    @classmethod
+    def from_json(cls, data: dict) -> "Project":
+        return cls(
+            id=data["id"],
+            name=data["name"],
+            description=data["description"],
+        )
+
+    def to_dict(self) -> dict:
+        return dataclasses.asdict(self)
+
+    def to_prompt(self) -> str:
+        return render(self.PROMPT_TEMPLATE, project=self)
+
+
+@dataclasses.dataclass
 class Issue:
     PROMPT_TEMPLATE = """
 Issue: {{issue.title}}
 Description: {{issue.description}}
 {% if issue.project %}
-Project: {{issue.project.get('name')}}
+Project: {{issue.project.name}}
 {% endif %}
 {% if issue.state %}
 State: {{issue.state.get('name')}}
@@ -65,7 +90,7 @@ Attachments:
             description=data.get("description"),
             updated_at=datetime.datetime.fromisoformat(updated_at_str),
             state=data["state"],
-            project=data["project"],
+            project=Project.from_json(data["project"]) if data["project"] else None,
             attachments=[Attachment.from_json(att) for att in data.get("attachments", {}).get("nodes", [])],
         )
 
@@ -73,6 +98,7 @@ Attachments:
         resp = dataclasses.asdict(self)
         resp["updated_at"] = resp["updated_at"].isoformat()
         resp["attachments"] = [att.to_dict() for att in self.attachments]
+        resp["project"] = self.project.to_dict() if self.project else None
         return resp
 
     def to_prompt(self) -> str:
@@ -110,6 +136,7 @@ class LinearClient:
               project {
                 id
                 name
+                description
               }
               attachments {
                 nodes {
