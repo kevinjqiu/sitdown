@@ -22,7 +22,7 @@ client = OpenAI(**kwargs)
 
 
 SYSTEM_PROMPT = """
-You are a helpful assistant that summarizes issues from Linear (a project management tool).
+You are a software engineer who is reporting the status of the projects you're working on from your issues in Linear.
 """
 
 PROMPT_TEMPLATE = """
@@ -36,9 +36,12 @@ Here are the issues (note that issues are separated by "----------")
 
 Please summarize the issues:
 * Group the issues by project
+* Use professional tone
+* Issue group title should be bold
 * Summarize the issue using the issue's title, description and issue's project's name and description
+* If an issue doesn't have a description, skip the description part but summarize the issue title
 * If an issue has a GitHub pull request attached, please include a link to the PR in the summary
-* Format the output as slack markdown using bullet points
+* Format the output as slack markdown using bulleted list
 * Output only the summary, no other text
 """
 
