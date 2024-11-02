@@ -1,13 +1,14 @@
+from enum import Enum
 import os
 from typing import List
 
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
+from langchain_openai import ChatOpenAI
 from tqdm import tqdm
 
 from .linear import Issue
-from .template import render
 
 
 OPENAI_BASE_URL = os.getenv("OPENAI_BASE_URL")
@@ -16,9 +17,14 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 if not OPENAI_API_KEY:
     raise ValueError("OPENAI_API_KEY environment variable not set")
 
-# Initialize the LLM
+
+class Model(str, Enum):
+    GPT_4O_MINI = "gpt-4o-mini"
+    GPT_4 = "gpt-4"
+
+
 llm = ChatOpenAI(
-    model="gpt-4",
+    model=Model.GPT_4,
     api_key=OPENAI_API_KEY,
     base_url=OPENAI_BASE_URL if OPENAI_BASE_URL else None,
     temperature=0,
@@ -65,7 +71,7 @@ streaming_chain = (
         "projects": RunnablePassthrough(),
     }
     | prompt
-    | llm.stream()
+    | llm
     | StrOutputParser()
 )
 
