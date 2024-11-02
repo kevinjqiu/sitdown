@@ -2,7 +2,7 @@ import dataclasses
 import datetime
 import requests
 
-from .template import render
+from template import render
 
 
 @dataclasses.dataclass
@@ -56,6 +56,27 @@ class Project:
 
 
 @dataclasses.dataclass
+class Comment:
+    PROMPT_TEMPLATE = """{{comment.body}}"""
+
+    id: str
+    body: str
+
+    @classmethod
+    def from_json(cls, data: dict) -> "Comment":
+        return cls(
+            id=data["id"],
+            body=data["body"],
+        )
+
+    def to_dict(self) -> dict:
+        return dataclasses.asdict(self)
+
+    def to_prompt(self) -> str:
+        return render(self.PROMPT_TEMPLATE, comment=self)
+
+
+@dataclasses.dataclass
 class Issue:
     PROMPT_TEMPLATE = """
 Issue: {{issue.title}}
@@ -70,6 +91,12 @@ Attachments:
 {% for att in issue.attachments %}
 - {{att.to_prompt()}}
 {% endfor %}
+{% if issue.comments %}
+Comments:
+{% for comment in issue.comments %}
+- {{comment.to_prompt()}}
+{% endfor %}
+{% endif %}
 ----------
 """
 
@@ -80,6 +107,7 @@ Attachments:
     state: dict[str, str]
     project: dict[str, str]
     attachments: list[Attachment]
+    comments: list[Comment]
 
     @classmethod
     def from_json(cls, data: dict) -> "Issue":
@@ -92,6 +120,7 @@ Attachments:
             state=data["state"],
             project=Project.from_json(data["project"]) if data["project"] else None,
             attachments=[Attachment.from_json(att) for att in data.get("attachments", {}).get("nodes", [])],
+            comments=[Comment.from_json(comment) for comment in data.get("comments", {}).get("nodes", [])],
         )
 
     def to_dict(self) -> dict:
@@ -145,6 +174,12 @@ class LinearClient:
                   subtitle
                 }
               }
+              comments {
+                nodes {
+                  id
+                  body
+                }
+              }
             }
           }
         }
@@ -155,3 +190,13 @@ class LinearClient:
         response = requests.post(url, headers=headers, json={"query": query})
         data = response.json()
         return [Issue.from_json(issue) for issue in data["data"]["viewer"]["assignedIssues"]["nodes"]]
+
+
+if __name__ == "__main__":
+    import os
+    import dotenv
+
+    dotenv.load_dotenv()
+    client = LinearClient(os.getenv("LINEAR_API_KEY"))
+    issues = client.get_recent_issues(days=7)
+    print(issues)

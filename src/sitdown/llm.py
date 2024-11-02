@@ -53,12 +53,15 @@ Please summarize the issues:
 """
 
 # Create the prompt template
-prompt = ChatPromptTemplate.from_messages([
-    ("system", system_template),
-    ("human", human_template),
-])
+prompt = ChatPromptTemplate.from_messages(
+    [
+        ("system", system_template),
+        ("human", human_template),
+    ]
+)
 
 chain = prompt | llm | StrOutputParser()
+
 
 def generate_summary(issues: List[Issue]) -> str:
     """Generate a summary of the issues using LangChain."""
@@ -66,9 +69,11 @@ def generate_summary(issues: List[Issue]) -> str:
     projects = [issue.project for issue in issues if issue.project]
     projects_text = "\n".join(project.to_prompt() for project in projects)
 
-    response = chain.invoke({
-        "issues": issues_text,
-        "projects": projects_text,
-    })
+    response = chain.invoke(
+        {
+            "issues": issues_text,
+            "projects": projects_text,
+        }
+    )
 
     return response
