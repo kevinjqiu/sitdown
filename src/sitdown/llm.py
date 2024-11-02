@@ -144,6 +144,8 @@ def generate_summary(issues: List[Issue]) -> str:
 def get_slack_thread_summary_chain() -> ChatPromptTemplate:
     slack_thread_summary_template = """\
 Please summarize this thread in 1-2 sentences, focusing on the key points, status, important comments, and any updates.
+* Always include the thread URL in the summary
+* If there are any links, include them in the summary
 
 Here is the thread:
 
@@ -164,7 +166,10 @@ def get_slack_summary_chain() -> ChatPromptTemplate:
 Given the following thread summaries, categorize and summarize the threads in bullet points:
 * Categorize the threads by projects
 * If a thread has less than 2 messages, ignore it
+* Do not include the thread ID in the summary
+* Always include the thread URL in the summary
 
+Threads:
 {threads}
 """
     slack_summary_prompt = ChatPromptTemplate.from_messages(

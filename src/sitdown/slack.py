@@ -4,6 +4,7 @@ import json
 from typing import List, Protocol
 
 from sitdown.snowflake import SnowflakeClient
+from sitdown.template import render
 
 
 @dataclasses.dataclass(frozen=True)
@@ -33,28 +34,39 @@ class SlackMessage:
 
 @dataclasses.dataclass(frozen=True)
 class SlackThread:
+    PROMPT_TEMPLATE = """\
+URL: {{thread.url}}
+{% if thread.status == "resolved" %}
+Resolved: {{thread.status}}
+{% endif %}
+Messages:
+{% for message in thread.messages %}
+{{message.to_prompt(my_slack_user_id)}}
+{% endfor %}"""
+
     thread_id: int
     slack_channel_id: str
     slack_message_id: str
     status: str
     messages: List[SlackMessage]
+    url: str
 
     @classmethod
     def from_dict(cls, data: dict) -> "SlackThread":
         messages = json.loads(data["MESSAGES"])
+        slack_channel_id = data["SLACK_CHANNEL_ID"]
+        slack_message_id = data["SLACK_MESSAGE_ID"]
         return cls(
             thread_id=data["THREAD_ID"],
-            slack_channel_id=data["SLACK_CHANNEL_ID"],
-            slack_message_id=data["SLACK_MESSAGE_ID"],
+            slack_channel_id=slack_channel_id,
+            slack_message_id=slack_message_id,
             status=data["STATUS"],
-            messages=[SlackMessage.from_dict(m) for m in messages]
+            messages=[SlackMessage.from_dict(m) for m in messages],
+            url=f"https://instacart.slack.com/archives/{slack_channel_id}/p{slack_message_id.replace('.', '')}"
         )
 
     def to_prompt(self, my_slack_user_id: str) -> str:
-        messages = [m.to_prompt(my_slack_user_id) for m in self.messages]
-        if self.status == "resolved":
-            return f"Resolved: Yes\nMessages:\n{messages}"
-        return "\n".join(messages)
+        return render(self.PROMPT_TEMPLATE, thread=self, my_slack_user_id=my_slack_user_id)
 
 
 class SlackDataSource(Protocol):

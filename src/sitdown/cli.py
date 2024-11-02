@@ -52,8 +52,6 @@ channels = {
 @click.option("--days", default=2, help="Number of days to look back")
 def summarize_slack(days):
     slack_client = SnowflakeSlackDataSource(SnowflakeClient.from_env())
-    # user_id = os.getenv("SLACK_USER_ID")
-    # channel_ids = os.getenv("SLACK_CHANNEL_IDS").split(",")
     user_id = "U01P857JR09"
     channel_ids = list(channels.values())
     threads = slack_client.get_recent_threads(days=days, user_id=user_id, channel_ids=channel_ids)
