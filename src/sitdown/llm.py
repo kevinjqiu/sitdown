@@ -7,6 +7,8 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI
 from tqdm import tqdm
 
+from sitdown.slack import SlackThread
+
 from .linear import Issue, Project
 
 
@@ -135,5 +137,54 @@ def generate_summary(issues: List[Issue]) -> str:
             # "projects": projects_text,
         }
     )
+
+    return response
+
+
+def get_slack_thread_summary_chain() -> ChatPromptTemplate:
+    slack_thread_summary_template = """\
+Please summarize this thread in 1-2 sentences, focusing on the key points, status, important comments, and any updates.
+
+Here is the thread:
+
+{thread}
+"""
+    slack_thread_summary_prompt = ChatPromptTemplate.from_messages(
+        [
+            ("system", "You are a technical writer summarizing development issues concisely."),
+            ("human", slack_thread_summary_template),
+        ]
+    )
+    return slack_thread_summary_prompt | llm | StrOutputParser()
+
+slack_thread_summary_chain = get_slack_thread_summary_chain()
+
+def get_slack_summary_chain() -> ChatPromptTemplate:
+    slack_summary_template = """\
+Given the following thread summaries, categorize and summarize the threads in bullet points:
+
+{threads}
+"""
+    slack_summary_prompt = ChatPromptTemplate.from_messages(
+        [
+            ("system", "You are a technical writer summarizing development issues concisely."),
+            ("human", slack_summary_template),
+        ]
+    )
+    return slack_summary_prompt | llm | StrOutputParser()
+
+slack_summary_chain = get_slack_summary_chain()
+
+
+def generate_slack_summary(threads: List[SlackThread], my_slack_user_id: str) -> str:
+    """Generate a summary of the threads using LangChain."""
+    enhanced_threads = []
+    for thread in tqdm(threads, desc="Summarizing threads"):
+        summary = slack_thread_summary_chain.invoke({"thread": thread.to_prompt(my_slack_user_id)})
+        enhanced_threads.append(f"Thread ID: {thread.thread_id}\nSummary: {summary}")
+
+    threads_text = "----------\n".join(enhanced_threads)
+
+    response = slack_summary_chain.invoke({"threads": threads_text})
 
     return response

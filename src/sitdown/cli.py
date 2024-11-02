@@ -1,11 +1,14 @@
 import dotenv
 
+from sitdown.slack import SnowflakeSlackDataSource
+from sitdown.snowflake import SnowflakeClient
+
 dotenv.load_dotenv()
 import click  # noqa: E402
 import os  # noqa: E402
 
 from .linear import LinearClient  # noqa: E402
-from .llm import generate_summary  # noqa: E402
+from .llm import generate_slack_summary, generate_summary  # noqa: E402
 
 
 LINEAR_API_KEY = os.getenv("LINEAR_API_KEY")
@@ -18,7 +21,7 @@ def cli():
 
 @cli.command()
 @click.option("--days", default=7, help="Number of days to look back")
-def get_summary(days):
+def summarize_linear(days):
     """Get issues assigned to you from the last N days"""
     if not LINEAR_API_KEY:
         click.echo("Error: LINEAR_API_KEY environment variable not set")
@@ -37,6 +40,18 @@ def get_summary(days):
 
     summary = generate_summary(issues)
     click.echo(summary)
+
+
+@cli.command()
+@click.option("--days", default=2, help="Number of days to look back")
+def summarize_slack(days):
+    slack_client = SnowflakeSlackDataSource(SnowflakeClient.from_env())
+    # user_id = os.getenv("SLACK_USER_ID")
+    # channel_ids = os.getenv("SLACK_CHANNEL_IDS").split(",")
+    user_id = "U01P857JR09"
+    channel_ids = ["CSJ6A0PRB"]
+    threads = slack_client.get_recent_threads(days=days, user_id=user_id, channel_ids=channel_ids)
+    click.echo(generate_slack_summary(threads, user_id))
 
 
 @cli.command()
