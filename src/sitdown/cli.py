@@ -42,6 +42,12 @@ def summarize_linear(days):
     click.echo(summary)
 
 
+channels = {
+    "prj-medusa": "C05EPBHNTUN",
+    "eng-roulette": "CSJ6A0PRB",
+    "expy": "C7X513PQ8",
+}
+
 @cli.command()
 @click.option("--days", default=2, help="Number of days to look back")
 def summarize_slack(days):
@@ -49,7 +55,7 @@ def summarize_slack(days):
     # user_id = os.getenv("SLACK_USER_ID")
     # channel_ids = os.getenv("SLACK_CHANNEL_IDS").split(",")
     user_id = "U01P857JR09"
-    channel_ids = ["CSJ6A0PRB"]
+    channel_ids = list(channels.values())
     threads = slack_client.get_recent_threads(days=days, user_id=user_id, channel_ids=channel_ids)
     click.echo(generate_slack_summary(threads, user_id))
 

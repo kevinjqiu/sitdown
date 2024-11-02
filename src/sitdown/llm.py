@@ -162,6 +162,8 @@ slack_thread_summary_chain = get_slack_thread_summary_chain()
 def get_slack_summary_chain() -> ChatPromptTemplate:
     slack_summary_template = """\
 Given the following thread summaries, categorize and summarize the threads in bullet points:
+* Categorize the threads by projects
+* If a thread has less than 2 messages, ignore it
 
 {threads}
 """
