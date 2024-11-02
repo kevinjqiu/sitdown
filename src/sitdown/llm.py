@@ -1,6 +1,10 @@
 import os
+from typing import List
 
-from openai import OpenAI
+from langchain_core.output_parsers import StrOutputParser
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.runnables import RunnablePassthrough
+from tqdm import tqdm
 
 from .linear import Issue
 from .template import render
@@ -12,27 +16,27 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 if not OPENAI_API_KEY:
     raise ValueError("OPENAI_API_KEY environment variable not set")
 
+# Initialize the LLM
+llm = ChatOpenAI(
+    model="gpt-4",
+    api_key=OPENAI_API_KEY,
+    base_url=OPENAI_BASE_URL if OPENAI_BASE_URL else None,
+    temperature=0,
+)
 
-kwargs = dict(api_key=OPENAI_API_KEY)
-if OPENAI_BASE_URL:
-    kwargs["base_url"] = OPENAI_BASE_URL
-
-
-client = OpenAI(**kwargs)
-
-
-SYSTEM_PROMPT = """
+# Define the prompts
+system_template = """
 You are a software engineer who is reporting the status of the projects you're working on from your issues in Linear.
 """
 
-PROMPT_TEMPLATE = """
+human_template = """
 Here are the projects I'm working on (separated by "=========="):
 ==========
-{{projects}}
+{projects}
 
 Here are the issues (note that issues are separated by "----------")
 ----------
-{{issues}}
+{issues}
 
 Please summarize the issues:
 * Group the issues by project
@@ -45,19 +49,53 @@ Please summarize the issues:
 * Output only the summary, no other text
 """
 
+# Create the prompt template
+prompt = ChatPromptTemplate.from_messages([
+    ("system", system_template),
+    ("human", human_template),
+])
 
-def generate_summary(issues: list[Issue]) -> str:
+# Create the chain
+chain = prompt | llm | StrOutputParser()
+
+# Create a streaming chain
+streaming_chain = (
+    {
+        "issues": RunnablePassthrough(),
+        "projects": RunnablePassthrough(),
+    }
+    | prompt
+    | llm.stream()
+    | StrOutputParser()
+)
+
+def generate_summary(issues: List[Issue]) -> str:
+    """Generate a summary of the issues using LangChain."""
     issues_text = "\n".join(issue.to_prompt() for issue in issues)
-
     projects = [issue.project for issue in issues if issue.project]
     projects_text = "\n".join(project.to_prompt() for project in projects)
 
-    response = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=[
-            {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": render(PROMPT_TEMPLATE, issues=issues_text, projects=projects_text)},
-        ],
-    )
+    # Execute the chain
+    response = chain.invoke({
+        "issues": issues_text,
+        "projects": projects_text,
+    })
 
-    return response.choices[0].message.content
+    return response
+
+def generate_summary_streaming(issues: List[Issue]) -> str:
+    """Generate a summary of the issues using LangChain with streaming output."""
+    issues_text = "\n".join(issue.to_prompt() for issue in issues)
+    projects = [issue.project for issue in issues if issue.project]
+    projects_text = "\n".join(project.to_prompt() for project in projects)
+
+    result = []
+    with tqdm(desc="Generating summary", bar_format="{desc}: {elapsed}") as pbar:
+        for chunk in streaming_chain.stream({
+            "issues": issues_text,
+            "projects": projects_text,
+        }):
+            result.append(chunk)
+            pbar.update(0)  # Updates the spinner
+
+    return "".join(result)
