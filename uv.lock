@@ -1176,7 +1176,6 @@ dependencies = [
     { name = "langchain-openai" },
     { name = "python-dotenv" },
     { name = "requests" },
-    { name = "tqdm" },
 ]
 
 [package.dev-dependencies]
@@ -1192,7 +1191,6 @@ requires-dist = [
     { name = "langchain-openai", specifier = ">=0.0.8" },
     { name = "python-dotenv", specifier = ">=1.0.1" },
     { name = "requests", specifier = ">=2.32.3" },
-    { name = "tqdm", specifier = ">=4.66.0" },
 ]
 
 [package.metadata.requires-dev]

@@ -4,9 +4,7 @@ from typing import List
 
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.runnables import RunnablePassthrough
 from langchain_openai import ChatOpenAI
-from tqdm import tqdm
 
 from .linear import Issue
 
@@ -30,7 +28,6 @@ llm = ChatOpenAI(
     temperature=0,
 )
 
-# Define the prompts
 system_template = """
 You are a software engineer who is reporting the status of the projects you're working on from your issues in Linear.
 """
@@ -61,19 +58,7 @@ prompt = ChatPromptTemplate.from_messages([
     ("human", human_template),
 ])
 
-# Create the chain
 chain = prompt | llm | StrOutputParser()
-
-# Create a streaming chain
-streaming_chain = (
-    {
-        "issues": RunnablePassthrough(),
-        "projects": RunnablePassthrough(),
-    }
-    | prompt
-    | llm
-    | StrOutputParser()
-)
 
 def generate_summary(issues: List[Issue]) -> str:
     """Generate a summary of the issues using LangChain."""
@@ -81,27 +66,9 @@ def generate_summary(issues: List[Issue]) -> str:
     projects = [issue.project for issue in issues if issue.project]
     projects_text = "\n".join(project.to_prompt() for project in projects)
 
-    # Execute the chain
     response = chain.invoke({
         "issues": issues_text,
         "projects": projects_text,
     })
 
     return response
-
-def generate_summary_streaming(issues: List[Issue]) -> str:
-    """Generate a summary of the issues using LangChain with streaming output."""
-    issues_text = "\n".join(issue.to_prompt() for issue in issues)
-    projects = [issue.project for issue in issues if issue.project]
-    projects_text = "\n".join(project.to_prompt() for project in projects)
-
-    result = []
-    with tqdm(desc="Generating summary", bar_format="{desc}: {elapsed}") as pbar:
-        for chunk in streaming_chain.stream({
-            "issues": issues_text,
-            "projects": projects_text,
-        }):
-            result.append(chunk)
-            pbar.update(0)  # Updates the spinner
-
-    return "".join(result)
