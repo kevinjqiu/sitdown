@@ -29,7 +29,9 @@ llm = ChatOpenAI(
     temperature=0,
 )
 
-issue_summary_template = """
+
+def get_issue_summary_chain() -> ChatPromptTemplate:
+    issue_summary_template = """\
 Please summarize this issue in 1-2 sentences, focusing on the key points, status, important comments, and any updates.
 * Keep the link/URL to the issue in the output
 * If there are github or slack links, include them in the output
@@ -39,31 +41,45 @@ Here is the issue:
 {issue}
 """
 
-issue_summary_prompt = ChatPromptTemplate.from_messages([
-    ("system", "You are a technical writer summarizing development issues concisely."),
-    ("human", issue_summary_template),
-])
+    issue_summary_prompt = ChatPromptTemplate.from_messages(
+        [
+            ("system", "You are a technical writer summarizing development issues concisely."),
+            ("human", issue_summary_template),
+        ]
+    )
 
-issue_summary_chain = issue_summary_prompt | llm | StrOutputParser()
+    return issue_summary_prompt | llm | StrOutputParser()
 
-project_summary_template = """
+
+issue_summary_chain = get_issue_summary_chain()
+
+
+def get_project_summary_chain() -> ChatPromptTemplate:
+    project_summary_template = """\
 Please summarize this project in 1-2 sentences, focusing on the goals, status, and any important comments:
 
 {project}
 """
 
-project_summary_prompt = ChatPromptTemplate.from_messages([
-    ("system", "You are a technical writer summarizing development projects concisely."),
-    ("human", project_summary_template),
-])
+    project_summary_prompt = ChatPromptTemplate.from_messages(
+        [
+            ("system", "You are a technical writer summarizing development projects concisely."),
+            ("human", project_summary_template),
+        ]
+    )
 
-project_summary_chain = project_summary_prompt | llm | StrOutputParser()
+    return project_summary_prompt | llm | StrOutputParser()
 
-system_template = """
+
+project_summary_chain = get_project_summary_chain()
+
+
+def get_main_chain() -> ChatPromptTemplate:
+    system_template = """\
 You are a software engineer who is reporting the status of the projects you're working on from your issues in Linear.
 """
 
-human_template = """
+    human_template = """\
 Here are the issues with their summaries (note that issues are separated by "----------")
 ----------
 {issues}
@@ -80,28 +96,27 @@ Please organize and summarize these issues:
 * Output only the summary, no other text
 """
 
-# Create the prompt template
-prompt = ChatPromptTemplate.from_messages(
-    [
-        ("system", system_template),
-        ("human", human_template),
-    ]
-)
+    prompt = ChatPromptTemplate.from_messages(
+        [
+            ("system", system_template),
+            ("human", human_template),
+        ]
+    )
 
-# Update the main chain
-main_chain = prompt | llm | StrOutputParser()
+    return prompt | llm | StrOutputParser()
+
+
+main_chain = get_main_chain()
+
 
 def summarize_single_issue(issue: Issue) -> str:
     """Generate a summary for a issue."""
-    return issue_summary_chain.invoke({
-        "issue": issue.to_prompt()
-    })
+    return issue_summary_chain.invoke({"issue": issue.to_prompt()})
+
 
 def summarize_single_project(project: Project) -> str:
     """Generate a summary for a project."""
-    return project_summary_chain.invoke({
-        "project": project.to_prompt()
-    })
+    return project_summary_chain.invoke({"project": project.to_prompt()})
 
 
 def generate_summary(issues: List[Issue]) -> str:
@@ -110,13 +125,15 @@ def generate_summary(issues: List[Issue]) -> str:
     for issue in tqdm(issues, desc="Summarizing issues"):
         summary = summarize_single_issue(issue)
         enhanced_issues.append(f"Title: {issue.title}\nSummary: {summary}")
-    
+
     issues_text = "\n".join(enhanced_issues)
 
     print("Generating final summary...")
-    response = main_chain.invoke({
-        "issues": issues_text,
-        # "projects": projects_text,
-    })
+    response = main_chain.invoke(
+        {
+            "issues": issues_text,
+            # "projects": projects_text,
+        }
+    )
 
     return response
