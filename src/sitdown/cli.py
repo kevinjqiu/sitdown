@@ -35,7 +35,6 @@ def get_summary(days):
         click.echo("Exiting...")
         return
 
-    click.echo("Generating summary...")
     summary = generate_summary(issues)
     click.echo(summary)
 

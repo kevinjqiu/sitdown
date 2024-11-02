@@ -2,7 +2,7 @@ import dataclasses
 import datetime
 import requests
 
-from template import render
+from .template import render
 
 
 @dataclasses.dataclass
@@ -80,6 +80,7 @@ class Comment:
 class Issue:
     PROMPT_TEMPLATE = """
 Issue: {{issue.title}}
+URL: {{issue.url}}
 Description: {{issue.description}}
 {% if issue.project %}
 Project: {{issue.project.name}}
@@ -102,6 +103,7 @@ Comments:
 
     id: str
     title: str
+    url: str
     description: str | None
     updated_at: datetime.datetime
     state: dict[str, str]
@@ -115,6 +117,7 @@ Comments:
         return cls(
             id=data["id"],
             title=data["title"],
+            url=data["url"],
             description=data.get("description"),
             updated_at=datetime.datetime.fromisoformat(updated_at_str),
             state=data["state"],
@@ -154,6 +157,7 @@ class LinearClient:
             nodes {
               id
               title
+              url
               description
               updatedAt
               state {
